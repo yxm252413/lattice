@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lattice.latticegoods.dao.GoodsMapper">
+  <resultMap id="BaseResultMap" type="com.lattice.latticegoods.entity.Goods">
+    <id column="goodsID" property="goodsid" jdbcType="INTEGER"/>
+    <result column="cateID" property="cateid" jdbcType="INTEGER"/>
+    <result column="title" property="title" jdbcType="VARCHAR"/>
+    <result column="pro_no" property="proNo" jdbcType="VARCHAR"/>
+    <result column="keywords" property="keywords" jdbcType="VARCHAR"/>
+    <result column="description" property="description" jdbcType="VARCHAR"/>
+    <result column="img" property="img" jdbcType="VARCHAR"/>
+    <result column="price" property="price" jdbcType="DECIMAL"/>
+    <result column="cost" property="cost" jdbcType="DECIMAL"/>
+    <result column="pv" property="pv" jdbcType="INTEGER"/>
+    <result column="status" property="status" jdbcType="TINYINT"/>
+    <result column="created" property="created" jdbcType="TIMESTAMP"/>
+    <result column="updated" property="updated" jdbcType="TIMESTAMP"/>
+  </resultMap>
+  <resultMap id="AllGoodsMessage" type="com.lattice.latticegoods.dto.GoodsDto">
+    <id column="g_goodsID" jdbcType="INTEGER" property="goodsid"/>
+    <result column="g_title" jdbcType="VARCHAR" property="title"/>
+    <result column="g_pro_no" jdbcType="VARCHAR" property="proNo"/>
+    <result column="g_keywords" jdbcType="VARCHAR" property="keywords"/>
+    <result column="g_description" jdbcType="VARCHAR" property="description"/>
+    <result column="g_price" jdbcType="DECIMAL" property="price"/>
+    <result column="g_cost" jdbcType="DECIMAL" property="cost"/>
+    <result column="g_pv" jdbcType="INTEGER" property="pv"/>
+    <result column="g_status" jdbcType="TINYINT" property="status"/>
+    <result column="g_created" jdbcType="TIMESTAMP" property="created"/>
+    <result column="g_updated" jdbcType="TIMESTAMP" property="updated"/>
+    <association property="goodsCate" javaType="com.lattice.latticegoods.entity.GoodsCate">
+      <id column="gc_cateID" jdbcType="INTEGER" property="cateid"/>
+      <result column="gc_ord" jdbcType="INTEGER" property="ord"/>
+      <result column="gc_title" jdbcType="VARCHAR" property="title"/>
+      <result column="gc_status" jdbcType="TINYINT" property="status"/>
+      <result column="gc_created" jdbcType="TIMESTAMP" property="created"/>
+      <result column="gc_updated" jdbcType="TIMESTAMP" property="updated"/>
+      <result column="gc_father" jdbcType="INTEGER" property="father"/>
+    </association>
+    <collection property="goodsImgs" ofType="com.lattice.latticegoods.entity.GoodsImg">
+      <id column="gi_imgID" jdbcType="INTEGER" property="imgid"/>
+      <result column="gi_img" jdbcType="VARCHAR" property="img"/>
+      <result column="gi_status" jdbcType="TINYINT" property="status"/>
+      <result column="gi_created" jdbcType="TIMESTAMP" property="created"/>
+      <result column="gi_updated" jdbcType="TIMESTAMP" property="updated"/>
+      <result column="gi_goodsID" jdbcType="INTEGER" property="goodsid"/>
+    </collection>
+    <collection property="goodsSkus" ofType="com.lattice.latticegoods.entity.GoodsSku">
+      <id column="gk_skuID" jdbcType="INTEGER" property="skuid"/>
+      <result column="gk_goodsID" jdbcType="INTEGER" property="goodsid"/>
+      <result column="gk_price" jdbcType="DECIMAL" property="price"/>
+      <result column="gk_cost" jdbcType="DECIMAL" property="cost"/>
+      <result column="gk_stock" jdbcType="INTEGER" property="stock"/>
+      <result column="gk_weight" jdbcType="INTEGER" property="weight"/>
+      <result column="gk_status" jdbcType="TINYINT" property="status"/>
+      <result column="gk_created" jdbcType="TIMESTAMP" property="created"/>
+      <result column="gk_updated" jdbcType="TIMESTAMP" property="updated"/>
+    </collection>
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" suffix=")" prefixOverrides="and">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" suffix=")" prefixOverrides="and">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    goodsID, cateID, title, pro_no, keywords, description, img, price, cost, pv, status, 
+    created, updated
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lattice.latticegoods.entity.GoodsExample">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List"/>
+    from tb_goods
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause"/>
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List"/>
+    from tb_goods
+    where goodsID = #{goodsid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_goods
+    where goodsID = #{goodsid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lattice.latticegoods.entity.GoodsExample">
+    delete from tb_goods
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause"/>
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lattice.latticegoods.entity.Goods">
+    insert into tb_goods (goodsID, cateID, title, 
+      pro_no, keywords, description, 
+      img, price, cost, pv, 
+      status, created, updated
+      )
+    values (#{goodsid,jdbcType=INTEGER}, #{cateid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, 
+      #{proNo,jdbcType=VARCHAR}, #{keywords,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{img,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, #{cost,jdbcType=DECIMAL}, #{pv,jdbcType=INTEGER}, 
+      #{status,jdbcType=TINYINT}, #{created,jdbcType=TIMESTAMP}, #{updated,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lattice.latticegoods.entity.Goods">
+    insert into tb_goods
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="goodsid != null">
+        goodsID,
+      </if>
+      <if test="cateid != null">
+        cateID,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="proNo != null">
+        pro_no,
+      </if>
+      <if test="keywords != null">
+        keywords,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="img != null">
+        img,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="cost != null">
+        cost,
+      </if>
+      <if test="pv != null">
+        pv,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="created != null">
+        created,
+      </if>
+      <if test="updated != null">
+        updated,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="goodsid != null">
+        #{goodsid,jdbcType=INTEGER},
+      </if>
+      <if test="cateid != null">
+        #{cateid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="proNo != null">
+        #{proNo,jdbcType=VARCHAR},
+      </if>
+      <if test="keywords != null">
+        #{keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null">
+        #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="cost != null">
+        #{cost,jdbcType=DECIMAL},
+      </if>
+      <if test="pv != null">
+        #{pv,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updated != null">
+        #{updated,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lattice.latticegoods.entity.GoodsExample"
+          resultType="java.lang.Integer">
+    select count(*) from tb_goods
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause"/>
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tb_goods
+    <set>
+      <if test="record.goodsid != null">
+        goodsID = #{record.goodsid,jdbcType=INTEGER},
+      </if>
+      <if test="record.cateid != null">
+        cateID = #{record.cateid,jdbcType=INTEGER},
+      </if>
+      <if test="record.title != null">
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.proNo != null">
+        pro_no = #{record.proNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.keywords != null">
+        keywords = #{record.keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="record.description != null">
+        description = #{record.description,jdbcType=VARCHAR},
+      </if>
+      <if test="record.img != null">
+        img = #{record.img,jdbcType=VARCHAR},
+      </if>
+      <if test="record.price != null">
+        price = #{record.price,jdbcType=DECIMAL},
+      </if>
+      <if test="record.cost != null">
+        cost = #{record.cost,jdbcType=DECIMAL},
+      </if>
+      <if test="record.pv != null">
+        pv = #{record.pv,jdbcType=INTEGER},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=TINYINT},
+      </if>
+      <if test="record.created != null">
+        created = #{record.created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updated != null">
+        updated = #{record.updated,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause"/>
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tb_goods
+    set goodsID = #{record.goodsid,jdbcType=INTEGER},
+    cateID = #{record.cateid,jdbcType=INTEGER},
+    title = #{record.title,jdbcType=VARCHAR},
+    pro_no = #{record.proNo,jdbcType=VARCHAR},
+    keywords = #{record.keywords,jdbcType=VARCHAR},
+    description = #{record.description,jdbcType=VARCHAR},
+    img = #{record.img,jdbcType=VARCHAR},
+    price = #{record.price,jdbcType=DECIMAL},
+    cost = #{record.cost,jdbcType=DECIMAL},
+    pv = #{record.pv,jdbcType=INTEGER},
+    status = #{record.status,jdbcType=TINYINT},
+    created = #{record.created,jdbcType=TIMESTAMP},
+    updated = #{record.updated,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause"/>
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lattice.latticegoods.entity.Goods">
+    update tb_goods
+    <set>
+      <if test="cateid != null">
+        cateID = #{cateid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="proNo != null">
+        pro_no = #{proNo,jdbcType=VARCHAR},
+      </if>
+      <if test="keywords != null">
+        keywords = #{keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null">
+        img = #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="cost != null">
+        cost = #{cost,jdbcType=DECIMAL},
+      </if>
+      <if test="pv != null">
+        pv = #{pv,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="created != null">
+        created = #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updated != null">
+        updated = #{updated,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where goodsID = #{goodsid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lattice.latticegoods.entity.Goods">
+    update tb_goods
+    set cateID = #{cateid,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      pro_no = #{proNo,jdbcType=VARCHAR},
+      keywords = #{keywords,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      img = #{img,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      cost = #{cost,jdbcType=DECIMAL},
+      pv = #{pv,jdbcType=INTEGER},
+      status = #{status,jdbcType=TINYINT},
+      created = #{created,jdbcType=TIMESTAMP},
+      updated = #{updated,jdbcType=TIMESTAMP}
+    where goodsID = #{goodsid,jdbcType=INTEGER}
+  </update>
+  <update id="updateStatus">
+    update tb_goods
+    set status = #{status,jdbcType=TINYINT}
+    where goodsID = #{goodsid,jdbcType=INTEGER}
+  </update>
+  <select id="getAll" resultMap="AllGoodsMessage" parameterType="java.lang.Integer">
+select
+	g.goodsID     g_goodsID      ,
+    g.cateID      g_cateID       ,
+    g.title       g_title        ,
+    g.pro_no      g_pro_no       ,
+    g.keywords    g_keywords     ,
+    g.description g_description  ,
+    g.img         g_img          ,
+    g.price       g_price        ,
+    g.cost        g_cost         ,
+    g.pv          g_pv           ,
+    g.status      g_status       ,
+    g.created     g_created      ,
+    g.updated     g_updated      ,
+	gi.imgID      gi_imgID      ,
+    gi.img        gi_img        ,
+    gi.status     gi_status     ,
+    gi.created    gi_created    ,
+    gi.updated    gi_updated    ,
+    gi.goodsID    gi_goodsID    ,
+	gk.skuID      gk_skuID      ,
+    gk.goodsID    gk_goodsID    ,
+    gk.price      gk_price      ,
+    gk.cost       gk_cost       ,
+    gk.stock      gk_stock      ,
+    gk.weight     gk_weight     ,
+    gk.status     gk_status     ,
+    gk.created    gk_created    ,
+    gk.updated    gk_updated    ,
+	gc.cateID     gc_cateID     ,
+    gc.ord        gc_ord        ,
+    gc.title      gc_title      ,
+    gc.status     gc_status     ,
+    gc.created    gc_created    ,
+    gc.updated    gc_updated    ,
+    gc.father     gc_father
+	from tb_goods g left outer join tb_goods_img gi on g.goodsID = gi.goodsID
+	left outer join tb_goods_sku  gk on g.goodsID = gk.goodsID
+	left outer join tb_goods_cate gc on g.cateID = gc.cateID
+	where g.goodsID = #{goodsID}
+</select>
+</mapper>

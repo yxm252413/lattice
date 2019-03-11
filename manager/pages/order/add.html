@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>添加会员-WeAdmin Frame型后台管理系统-WeAdmin 1.0</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" href="../../static/css/font.css">
+	<link rel="stylesheet" href="../../static/css/weadmin.css">
+	<link rel="stylesheet" href="../../layui/css/layui.css"/>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+	<!--[if lt IE 9]>
+	<script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+	<script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+<div class="weadmin-body">
+	<form class="layui-form">
+		<input type="hidden" name="goodsid" id="goodsid" value=""/>
+		<div class="layui-form-item">
+			<input type="hidden" id="skuid" name="skuid">
+		</div>
+
+
+		<div class="layui-form-item">
+			<label for="price" class="layui-form-label">
+				<span class="we-red">*</span>商品价格
+			</label>
+			<div class="layui-input-inline">
+				<input type="number" id="price" name="price" lay-verify="required|nikename" autocomplete="off"
+					   class="layui-input">
+			</div>
+
+		</div>
+
+		<div class="layui-form-item">
+			<label for="cost" class="layui-form-label">
+				<span class="we-red">*</span>成本价
+			</label>
+			<div class="layui-input-inline">
+				<input type="number" id="cost" name="cost" lay-verify="required|nikename" autocomplete="off"
+					   class="layui-input">
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<label for="stock" class="layui-form-label">
+				<span class="we-red">*</span>库存
+			</label>
+			<div class="layui-input-inline">
+				<input type="number" id="stock" name="stock" lay-verify="required|nikename" autocomplete="off"
+					   class="layui-input">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label for="weight" class="layui-form-label">
+				<span class="we-red">*</span>重量
+			</label>
+			<div class="layui-input-inline">
+				<input type="number" id="weight" name="weight" placeholder="单位克" lay-verify="required|nikename"
+					   autocomplete="off"
+					   class="layui-input">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label for="status" class="layui-form-label">
+				<span class="we-red">*</span>状态
+			</label>
+			<div class="layui-input-inline" lay-filter="selFilter">
+				<select name="status" id="status">
+					<option value="0">下架</option>
+					<option value="1">上架</option>
+				</select>
+			</div>
+		</div>
+
+
+		<div class="layui-form-item">
+			<button class="layui-btn" lay-filter="formDemo" lay-submit>确定</button>
+		</div>
+	</form>
+</div>
+<script src="../../layui/layui.js" charset="utf-8"></script>
+
+<script>
+	function getParams(key) {
+
+		var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
+		var r = window.location.search.substr(1).match(reg);
+		if (r != null) {
+			return unescape(r[2]);
+		}
+		return null;
+	};
+
+	function AddInput() {
+		var sku = "Asdas";
+		$('#shangpin').append("Asdsad")
+	}
+
+	layui.use('form', function () {
+
+		var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
+
+
+		//获取编辑时的初始信息
+		$(function () {
+			var id = getParams("id");
+
+			var Url = "http://127.0.0.1:8444/order/order/" + id;
+			if (id != null) {
+				$.ajax({
+					type: 'get',
+					dataType: 'json',
+					contentType: 'application/json',
+					url: Url,
+					success: function (res) {
+						$("#action").attr("value", "http://127.0.0.1:8444/order/order/update")
+						var item = res.data
+						$("#orderid").attr("value", item.orderid)
+						$("#payment").attr("value", item.payment)
+						$("#paymentType").attr("value", item.paymentType)
+						$("#postFree").attr("value", item.postFree)
+						$("#status").attr("value", item.status)
+						$("#shippingname").attr("value", item.shippingname)
+						$("#shippingcode").attr("value", item.shippingcode)
+						$("#userid").attr("value", item.userid)
+						$("#buyermessage").attr("value", item.buyermessage)
+						form.render('select');
+					}
+				})
+
+			}
+
+		});
+
+
+		form.on('submit(formDemo)', function (data) {
+			var Url = $("#action").attr("value")
+			$.ajax({
+				type: 'post',
+				url: Url,
+				dataType: 'json',
+				data: JSON.stringify(data.field),
+				contentType: 'application/json',
+				success: function (result) {
+					var code = result.code
+					if (code == "0") {
+						layer.msg("添加成功")
+						setTimeout(function () {
+							location.reload();
+						}, 1000)
+					}
+				},
+				error: function (XMLHttpRequest, textStatus, errorThrown) {
+				}
+
+			});
+			return false;
+		});
+	});
+	layui.use('upload', function () {
+		var $ = layui.jquery,
+				upload = layui.upload;
+		//多图片上传
+		upload.render({
+			elem: '#test2',
+			url: 'http://localhost:8110/test/upload',
+			multiple: true,
+			number: 1,
+			before: function (obj) {
+				//预读本地文件示例，不支持ie8
+				obj.preview(function (index, file, result) {
+					layer.load(); //上传loading
+					$('#demo2').append('<img src="' + result + '"  alt="' + index + '" class="layui-upload-img layui-col-md3" style="margin:10px" >')
+				});
+			},
+			done: function (res) {
+				layer.closeAll('loading'); //关闭loading
+				var src = res.data[0].src;
+				var mesg = $('#image').attr("value")
+				layer.msg(mesg)
+				if (mesg == "") {
+					$('#image').attr("value", src)
+				} else {
+					$('#image').attr("value", mesg + "," + src)
+				}
+				//上传完毕
+			},
+			error: function (index, upload) {
+				layer.closeAll('loading'); //关闭loading
+				setTimeout(function () {
+					$("#demo2 img").last().remove();
+				}, 1000)
+				//当上传失败时，你可以生成一个“重新上传”的按钮，点击该按钮时，执行 upload() 方法即可实现重新上传
+			}
+		});
+	});
+</script>
+</body>
+
+</html>

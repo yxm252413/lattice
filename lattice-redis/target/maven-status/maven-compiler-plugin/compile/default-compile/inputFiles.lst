@@ -1,0 +1,6 @@
+/home/zjh/IdeaProjects/lattice/lattice-redis/src/main/java/com/lattice/latticeredis/utils/RedisUtil.java
+/home/zjh/IdeaProjects/lattice/lattice-redis/src/main/java/com/lattice/latticeredis/config/RedisConfig.java
+/home/zjh/IdeaProjects/lattice/lattice-redis/src/main/java/com/lattice/latticeredis/entity/User.java
+/home/zjh/IdeaProjects/lattice/lattice-redis/src/main/java/com/lattice/latticeredis/controller/TestController.java
+/home/zjh/IdeaProjects/lattice/lattice-redis/src/main/java/com/lattice/latticeredis/LatticeRedisApplication.java
+/home/zjh/IdeaProjects/lattice/lattice-redis/src/main/java/com/lattice/latticeredis/config/CachingConfig.java

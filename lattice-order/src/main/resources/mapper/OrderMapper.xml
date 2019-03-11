@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lattice.latticeorder.dao.OrderMapper" >
+  <resultMap id="BaseResultMap" type="com.lattice.latticeorder.entity.Order" >
+    <id column="orderID" property="orderid" jdbcType="INTEGER"/>
+    <result column="payment" property="payment" jdbcType="VARCHAR" />
+    <result column="payment_type" property="paymentType" jdbcType="VARCHAR" />
+    <result column="post_free" property="postFree" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="created" property="created" jdbcType="TIMESTAMP" />
+    <result column="updated" property="updated" jdbcType="TIMESTAMP" />
+    <result column="paymentTime" property="paymenttime" jdbcType="TIMESTAMP" />
+    <result column="consignTime" property="consigntime" jdbcType="TIMESTAMP" />
+    <result column="endTime" property="endtime" jdbcType="TIMESTAMP" />
+    <result column="closeTime" property="closetime" jdbcType="TIMESTAMP" />
+    <result column="shippingName" property="shippingname" jdbcType="VARCHAR" />
+    <result column="shippingCode" property="shippingcode" jdbcType="VARCHAR"/>
+    <result column="userID" property="userid" jdbcType="INTEGER" />
+    <result column="buyerMessage" property="buyermessage" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="OrderAllMessage" type="com.lattice.latticeorder.dto.OrderDTO">
+    <result column="username" property="username" jdbcType="VARCHAR"/>
+    <association property="order" javaType="com.lattice.latticeorder.entity.Order" columnPrefix="o_">
+      <id column="orderID" property="orderid" jdbcType="INTEGER"/>
+      <result column="payment" property="payment" jdbcType="VARCHAR"/>
+      <result column="payment_type" property="paymentType" jdbcType="VARCHAR"/>
+      <result column="post_free" property="postFree" jdbcType="VARCHAR"/>
+      <result column="status" property="status" jdbcType="INTEGER"/>
+      <result column="created" property="created" jdbcType="TIMESTAMP"/>
+      <result column="updated" property="updated" jdbcType="TIMESTAMP"/>
+      <result column="paymentTime" property="paymenttime" jdbcType="TIMESTAMP"/>
+      <result column="consignTime" property="consigntime" jdbcType="TIMESTAMP"/>
+      <result column="endTime" property="endtime" jdbcType="TIMESTAMP"/>
+      <result column="closeTime" property="closetime" jdbcType="TIMESTAMP"/>
+      <result column="shippingName" property="shippingname" jdbcType="VARCHAR"/>
+      <result column="shippingCode" property="shippingcode" jdbcType="VARCHAR"/>
+      <result column="userID" property="userid" jdbcType="INTEGER"/>
+      <result column="buyerMessage" property="buyermessage" jdbcType="VARCHAR"/>
+    </association>
+    <association property="orderShipping" javaType="com.lattice.latticeorder.entity.OrderShipping" columnPrefix="os_">
+      <id column="orderShippingID" property="ordershippingid" jdbcType="INTEGER"/>
+      <result column="receiverName" property="receivername" jdbcType="VARCHAR"/>
+      <result column="receiverPhone" property="receiverphone" jdbcType="VARCHAR"/>
+      <result column="receiverState" property="receiverstate" jdbcType="VARCHAR"/>
+      <result column="receiverCity" property="receivercity" jdbcType="VARCHAR"/>
+      <result column="receiverDistrict" property="receiverdistrict" jdbcType="VARCHAR"/>
+      <result column="receiverAddress" property="receiveraddress" jdbcType="VARCHAR"/>
+      <result column="receiverZip" property="receiverzip" jdbcType="VARCHAR"/>
+      <result column="created" property="created" jdbcType="TIMESTAMP"/>
+      <result column="updated" property="updated" jdbcType="TIMESTAMP"/>
+      <result column="orderID" property="orderid" jdbcType="INTEGER"/>
+    </association>
+    <association property="orderItem" javaType="com.lattice.latticeorder.entity.OrderItem" columnPrefix="oi_">
+      <id column="orderItemID" property="orderitemid" jdbcType="INTEGER"/>
+      <result column="goodsID" property="goodsid" jdbcType="INTEGER"/>
+      <result column="orderID" property="orderid" jdbcType="INTEGER"/>
+      <result column="num" property="num" jdbcType="INTEGER"/>
+      <result column="title" property="title" jdbcType="VARCHAR"/>
+      <result column="price" property="price" jdbcType="INTEGER"/>
+      <result column="totalFee" property="totalfee" jdbcType="INTEGER"/>
+      <result column="picPath" property="picpath" jdbcType="VARCHAR"/>
+    </association>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    orderID, payment, payment_type, post_free, status, created, updated, paymentTime, 
+    consignTime, endTime, closeTime, shippingName, shippingCode, userID, buyerMessage
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lattice.latticeorder.entity.OrderExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_order
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_order
+    where orderID = #{orderid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_order
+    where orderID = #{orderid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lattice.latticeorder.entity.OrderExample" >
+    delete from tb_order
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lattice.latticeorder.entity.Order" >
+    insert into tb_order (orderID, payment, payment_type, 
+      post_free, status, created, 
+      updated, paymentTime, consignTime, 
+      endTime, closeTime, shippingName, 
+      shippingCode, userID, buyerMessage
+      )
+    values (#{orderid,jdbcType=INTEGER}, #{payment,jdbcType=VARCHAR}, #{paymentType,jdbcType=VARCHAR}, 
+      #{postFree,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{created,jdbcType=TIMESTAMP}, 
+      #{updated,jdbcType=TIMESTAMP}, #{paymenttime,jdbcType=TIMESTAMP}, #{consigntime,jdbcType=TIMESTAMP}, 
+      #{endtime,jdbcType=TIMESTAMP}, #{closetime,jdbcType=TIMESTAMP}, #{shippingname,jdbcType=VARCHAR}, 
+      #{shippingcode,jdbcType=VARCHAR}, #{userid,jdbcType=INTEGER}, #{buyermessage,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lattice.latticeorder.entity.Order" useGeneratedKeys="true"
+          keyProperty="orderID">
+    insert into tb_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orderid != null" >
+        orderID,
+      </if>
+      <if test="payment != null" >
+        payment,
+      </if>
+      <if test="paymentType != null" >
+        payment_type,
+      </if>
+      <if test="postFree != null" >
+        post_free,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="created != null" >
+        created,
+      </if>
+      <if test="updated != null" >
+        updated,
+      </if>
+      <if test="paymenttime != null" >
+        paymentTime,
+      </if>
+      <if test="consigntime != null" >
+        consignTime,
+      </if>
+      <if test="endtime != null" >
+        endTime,
+      </if>
+      <if test="closetime != null" >
+        closeTime,
+      </if>
+      <if test="shippingname != null" >
+        shippingName,
+      </if>
+      <if test="shippingcode != null" >
+        shippingCode,
+      </if>
+      <if test="userid != null" >
+        userID,
+      </if>
+      <if test="buyermessage != null" >
+        buyerMessage,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orderid != null" >
+        #{orderid,jdbcType=INTEGER},
+      </if>
+      <if test="payment != null" >
+        #{payment,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentType != null" >
+        #{paymentType,jdbcType=VARCHAR},
+      </if>
+      <if test="postFree != null" >
+        #{postFree,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="created != null" >
+        #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updated != null" >
+        #{updated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paymenttime != null" >
+        #{paymenttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="consigntime != null" >
+        #{consigntime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="closetime != null" >
+        #{closetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shippingname != null" >
+        #{shippingname,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingcode != null" >
+        #{shippingcode,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="buyermessage != null" >
+        #{buyermessage,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lattice.latticeorder.entity.OrderExample" resultType="java.lang.Integer" >
+    select count(*) from tb_order
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tb_order
+    <set >
+      <if test="record.orderid != null" >
+        orderID = #{record.orderid,jdbcType=INTEGER},
+      </if>
+      <if test="record.payment != null" >
+        payment = #{record.payment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paymentType != null" >
+        payment_type = #{record.paymentType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.postFree != null" >
+        post_free = #{record.postFree,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.created != null" >
+        created = #{record.created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updated != null" >
+        updated = #{record.updated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.paymenttime != null" >
+        paymentTime = #{record.paymenttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.consigntime != null" >
+        consignTime = #{record.consigntime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.endtime != null" >
+        endTime = #{record.endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.closetime != null" >
+        closeTime = #{record.closetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.shippingname != null" >
+        shippingName = #{record.shippingname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shippingcode != null" >
+        shippingCode = #{record.shippingcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userid != null" >
+        userID = #{record.userid,jdbcType=INTEGER},
+      </if>
+      <if test="record.buyermessage != null" >
+        buyerMessage = #{record.buyermessage,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tb_order
+    set orderID = #{record.orderid,jdbcType=INTEGER},
+      payment = #{record.payment,jdbcType=VARCHAR},
+      payment_type = #{record.paymentType,jdbcType=VARCHAR},
+      post_free = #{record.postFree,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=INTEGER},
+      created = #{record.created,jdbcType=TIMESTAMP},
+      updated = #{record.updated,jdbcType=TIMESTAMP},
+      paymentTime = #{record.paymenttime,jdbcType=TIMESTAMP},
+      consignTime = #{record.consigntime,jdbcType=TIMESTAMP},
+      endTime = #{record.endtime,jdbcType=TIMESTAMP},
+      closeTime = #{record.closetime,jdbcType=TIMESTAMP},
+      shippingName = #{record.shippingname,jdbcType=VARCHAR},
+      shippingCode = #{record.shippingcode,jdbcType=VARCHAR},
+      userID = #{record.userid,jdbcType=INTEGER},
+      buyerMessage = #{record.buyermessage,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lattice.latticeorder.entity.Order" >
+    update tb_order
+    <set >
+      <if test="payment != null" >
+        payment = #{payment,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentType != null" >
+        payment_type = #{paymentType,jdbcType=VARCHAR},
+      </if>
+      <if test="postFree != null" >
+        post_free = #{postFree,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="created != null" >
+        created = #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updated != null" >
+        updated = #{updated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paymenttime != null" >
+        paymentTime = #{paymenttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="consigntime != null" >
+        consignTime = #{consigntime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        endTime = #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="closetime != null" >
+        closeTime = #{closetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shippingname != null" >
+        shippingName = #{shippingname,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingcode != null" >
+        shippingCode = #{shippingcode,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        userID = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="buyermessage != null" >
+        buyerMessage = #{buyermessage,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where orderID = #{orderid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lattice.latticeorder.entity.Order" >
+    update tb_order
+    set payment = #{payment,jdbcType=VARCHAR},
+      payment_type = #{paymentType,jdbcType=VARCHAR},
+      post_free = #{postFree,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      created = #{created,jdbcType=TIMESTAMP},
+      updated = #{updated,jdbcType=TIMESTAMP},
+      paymentTime = #{paymenttime,jdbcType=TIMESTAMP},
+      consignTime = #{consigntime,jdbcType=TIMESTAMP},
+      endTime = #{endtime,jdbcType=TIMESTAMP},
+      closeTime = #{closetime,jdbcType=TIMESTAMP},
+      shippingName = #{shippingname,jdbcType=VARCHAR},
+      shippingCode = #{shippingcode,jdbcType=VARCHAR},
+      userID = #{userid,jdbcType=INTEGER},
+      buyerMessage = #{buyermessage,jdbcType=VARCHAR}
+    where orderID = #{orderid,jdbcType=INTEGER}
+  </update>
+  <update id="updateStatus">
+    update tb_order
+    set
+      status = #{status,jdbcType=INTEGER}
+    where orderID = #{orderid,jdbcType=INTEGER}
+  </update>
+  <select id="getAll" resultMap="OrderAllMessage">
+select
+  o.orderID          o_orderID           ,
+  o.payment          o_payment           ,
+  o.payment_type     o_payment_type      ,
+  o.post_free        o_post_free         ,
+  o.status           o_status            ,
+  o.created          o_created           ,
+  o.updated          o_updated           ,
+  o.paymentTime      o_paymentTime       ,
+  o.consignTime      o_consignTime       ,
+  o.endTime          o_endTime           ,
+  o.closeTime        o_closeTime         ,
+  o.shippingName     o_shippingName      ,
+  o.shippingCode     o_shippingCode      ,
+  o.userID           o_userID            ,
+  o.buyerMessage     o_buyerMessage      ,
+  oi.orderItemID     oi_orderItemID      ,
+  oi.goodsID         oi_goodsID          ,
+  oi.orderID         oi_orderID          ,
+  oi.num             oi_num              ,
+  os.orderShippingID  os_orderShippingID ,
+  os.receiverName     os_receiverName    ,
+  os.receiverPhone    os_receiverPhone   ,
+  os.receiverState    os_receiverState   ,
+  os.receiverCity     os_receiverCity    ,
+  os.receiverDistrict os_receiverDistrict,
+  os.receiverAddress  os_receiverAddress ,
+  os.receiverZip      os_receiverZip     ,
+  os.created          os_created         ,
+  os.updated          os_updated         ,
+  os.orderID          os_orderID         ,
+u.name username
+from tb_order o left outer join tb_order_item oi on o.orderID = oi.orderID
+left outer join tb_order_shipping os on o.orderID = os.orderID
+left outer join tb_user u on o.userID = u.userID;
+  </select>
+</mapper>

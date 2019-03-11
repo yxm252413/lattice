@@ -1,0 +1,8 @@
+com/lattice/latticeredis/utils/RedisUtil.class
+com/lattice/latticeredis/config/CachingConfig$1.class
+com/lattice/latticeredis/config/CachingConfig$RedisCacheErrorHandler.class
+com/lattice/latticeredis/controller/TestController.class
+com/lattice/latticeredis/config/CachingConfig.class
+com/lattice/latticeredis/config/RedisConfig.class
+com/lattice/latticeredis/LatticeRedisApplication.class
+com/lattice/latticeredis/entity/User.class

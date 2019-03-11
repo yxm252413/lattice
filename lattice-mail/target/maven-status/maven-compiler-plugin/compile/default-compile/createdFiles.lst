@@ -1,0 +1,4 @@
+com/lattice/latticemail/service/impl/MailServiceImpl.class
+com/lattice/latticemail/service/MailService.class
+com/lattice/latticemail/controller/MailController.class
+com/lattice/latticemail/LatticeMailApplication.class

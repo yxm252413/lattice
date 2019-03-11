@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lattice.latticegoods.dao.GoodsPropertiesMapper" >
+  <resultMap id="BaseResultMap" type="com.lattice.latticegoods.entity.GoodsProperties" >
+    <id column="proID" property="proid" jdbcType="INTEGER" />
+    <result column="proNameID" property="pronameid" jdbcType="INTEGER" />
+    <result column="proValueID" property="provalueid" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="created" property="created" jdbcType="TIMESTAMP" />
+    <result column="updated" property="updated" jdbcType="TIMESTAMP" />
+    <result column="skuID" property="skuid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    proID, proNameID, proValueID, status, created, updated, skuID
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lattice.latticegoods.entity.GoodsPropertiesExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_goods_properties
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_goods_properties
+    where proID = #{proid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_goods_properties
+    where proID = #{proid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lattice.latticegoods.entity.GoodsPropertiesExample" >
+    delete from tb_goods_properties
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lattice.latticegoods.entity.GoodsProperties" >
+    insert into tb_goods_properties (proID, proNameID, proValueID, 
+      status, created, updated, 
+      skuID)
+    values (#{proid,jdbcType=INTEGER}, #{pronameid,jdbcType=INTEGER}, #{provalueid,jdbcType=INTEGER}, 
+      #{status,jdbcType=TINYINT}, #{created,jdbcType=TIMESTAMP}, #{updated,jdbcType=TIMESTAMP}, 
+      #{skuid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lattice.latticegoods.entity.GoodsProperties" >
+    insert into tb_goods_properties
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="proid != null" >
+        proID,
+      </if>
+      <if test="pronameid != null" >
+        proNameID,
+      </if>
+      <if test="provalueid != null" >
+        proValueID,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="created != null" >
+        created,
+      </if>
+      <if test="updated != null" >
+        updated,
+      </if>
+      <if test="skuid != null" >
+        skuID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="proid != null" >
+        #{proid,jdbcType=INTEGER},
+      </if>
+      <if test="pronameid != null" >
+        #{pronameid,jdbcType=INTEGER},
+      </if>
+      <if test="provalueid != null" >
+        #{provalueid,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="created != null" >
+        #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updated != null" >
+        #{updated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="skuid != null" >
+        #{skuid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lattice.latticegoods.entity.GoodsPropertiesExample" resultType="java.lang.Integer" >
+    select count(*) from tb_goods_properties
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tb_goods_properties
+    <set >
+      <if test="record.proid != null" >
+        proID = #{record.proid,jdbcType=INTEGER},
+      </if>
+      <if test="record.pronameid != null" >
+        proNameID = #{record.pronameid,jdbcType=INTEGER},
+      </if>
+      <if test="record.provalueid != null" >
+        proValueID = #{record.provalueid,jdbcType=INTEGER},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=TINYINT},
+      </if>
+      <if test="record.created != null" >
+        created = #{record.created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updated != null" >
+        updated = #{record.updated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.skuid != null" >
+        skuID = #{record.skuid,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tb_goods_properties
+    set proID = #{record.proid,jdbcType=INTEGER},
+      proNameID = #{record.pronameid,jdbcType=INTEGER},
+      proValueID = #{record.provalueid,jdbcType=INTEGER},
+      status = #{record.status,jdbcType=TINYINT},
+      created = #{record.created,jdbcType=TIMESTAMP},
+      updated = #{record.updated,jdbcType=TIMESTAMP},
+      skuID = #{record.skuid,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lattice.latticegoods.entity.GoodsProperties" >
+    update tb_goods_properties
+    <set >
+      <if test="pronameid != null" >
+        proNameID = #{pronameid,jdbcType=INTEGER},
+      </if>
+      <if test="provalueid != null" >
+        proValueID = #{provalueid,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="created != null" >
+        created = #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updated != null" >
+        updated = #{updated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="skuid != null" >
+        skuID = #{skuid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where proID = #{proid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lattice.latticegoods.entity.GoodsProperties" >
+    update tb_goods_properties
+    set proNameID = #{pronameid,jdbcType=INTEGER},
+      proValueID = #{provalueid,jdbcType=INTEGER},
+      status = #{status,jdbcType=TINYINT},
+      created = #{created,jdbcType=TIMESTAMP},
+      updated = #{updated,jdbcType=TIMESTAMP},
+      skuID = #{skuid,jdbcType=INTEGER}
+    where proID = #{proid,jdbcType=INTEGER}
+  </update>
+</mapper>

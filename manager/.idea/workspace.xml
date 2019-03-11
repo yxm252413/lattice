@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="43d85ad3-81d7-4994-b121-0fe186407a76" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../lattice-order/src/main/java/com/lattice/latticeorder/config/CachingConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lattice-order/src/main/java/com/lattice/latticeorder/config/RedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lattice-order/src/main/java/com/lattice/latticeorder/utils/RedisUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lattice-order/src/main/resources/redis.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lattice-others/src/main/java/com/lattice/latticeothers/controller/QiNiuController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lattice-others/src/main/java/com/lattice/latticeothers/service/QiNiuService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lattice-others/src/main/java/com/lattice/latticeothers/service/impl/QiNiuServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lattice-others/src/main/resources/qiniuyun.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lattice-user/src/main/java/com/lattice/latticeuser/config/CachingConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lattice-user/src/main/java/com/lattice/latticeuser/config/RedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lattice-user/src/main/java/com/lattice/latticeuser/utils/RedisUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lattice-user/src/main/resources/redis.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../config-one/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../config-one/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../config-one/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../config-one/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../config-three/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../config-three/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../config-three/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../config-three/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../config-two/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../config-two/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../config-two/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../config-two/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eureka-one/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../eureka-one/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eureka-one/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../eureka-one/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eureka-three/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../eureka-three/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eureka-three/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../eureka-three/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eureka-two/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../eureka-two/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eureka-two/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../eureka-two/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-category/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-category/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-common/src/main/java/com/lattice/latticecommon/result/LayUiResultData.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-common/src/main/java/com/lattice/latticecommon/result/LayUiResultData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-common/src/main/java/com/lattice/latticecommon/result/LayUiResultDataList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-common/src/main/java/com/lattice/latticecommon/result/LayUiResultDataList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-goods/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-goods/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/config/RedisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/controller/GoodsCateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/controller/GoodsCateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/controller/GoodsSkuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/controller/GoodsSkuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/dao/GoodsSkuMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/dao/GoodsSkuMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/dto/GoodsDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/dto/GoodsDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/dto/GoodsProDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/dto/GoodsProDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/entity/Goods.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/entity/Goods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/entity/GoodsCate.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/entity/GoodsCate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/entity/GoodsImg.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/entity/GoodsImg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/entity/GoodsProName.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/entity/GoodsProName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/entity/GoodsProValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/entity/GoodsProValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/entity/GoodsProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/entity/GoodsProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/entity/GoodsSku.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/entity/GoodsSku.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/service/GoodsCateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/service/GoodsCateService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/service/GoodsSkuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/service/GoodsSkuService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/service/impl/GoodsCateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/service/impl/GoodsCateServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/service/impl/GoodsImgServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/service/impl/GoodsImgServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/service/impl/GoodsProNameServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/service/impl/GoodsProNameServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/service/impl/GoodsProValueServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/service/impl/GoodsProValueServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/service/impl/GoodsPropertiesServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/service/impl/GoodsPropertiesServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/service/impl/GoodsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/service/impl/GoodsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/service/impl/GoodsSkuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/service/impl/GoodsSkuServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/utils/CheckUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-goods/src/main/java/com/lattice/latticegoods/utils/CheckUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-goods/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-goods/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-goods/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-goods/src/main/resources/bootstrap.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-goods/src/main/resources/logback-boot.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-goods/src/main/resources/logback-boot.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-goods/src/main/resources/mapper/GoodsSkuMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-goods/src/main/resources/mapper/GoodsSkuMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-goods/src/main/resources/redis.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-goods/src/main/resources/redis.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-mail/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-mail/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-mail/target/classes/com/lattice/latticemail/controller/MailController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-mail/target/classes/com/lattice/latticemail/controller/MailController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-mail/target/classes/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-mail/target/classes/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-mail/target/surefire-reports/TEST-com.lattice.latticemail.LatticeMailApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-mail/target/surefire-reports/TEST-com.lattice.latticemail.LatticeMailApplicationTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-mail/target/surefire-reports/com.lattice.latticemail.LatticeMailApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-mail/target/surefire-reports/com.lattice.latticemail.LatticeMailApplicationTests.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-order/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-order/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-order/src/main/java/com/lattice/latticeorder/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-order/src/main/java/com/lattice/latticeorder/entity/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-order/src/main/java/com/lattice/latticeorder/entity/OrderItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-order/src/main/java/com/lattice/latticeorder/entity/OrderItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-order/src/main/java/com/lattice/latticeorder/entity/OrderShipping.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-order/src/main/java/com/lattice/latticeorder/entity/OrderShipping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-order/src/main/java/com/lattice/latticeorder/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-order/src/main/java/com/lattice/latticeorder/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-order/target/classes/com/lattice/latticeorder/entity/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-order/target/classes/com/lattice/latticeorder/entity/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-order/target/classes/com/lattice/latticeorder/entity/OrderItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-order/target/classes/com/lattice/latticeorder/entity/OrderItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-order/target/classes/com/lattice/latticeorder/entity/OrderShipping.class" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-order/target/classes/com/lattice/latticeorder/entity/OrderShipping.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-order/target/classes/com/lattice/latticeorder/service/impl/OrderServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-order/target/classes/com/lattice/latticeorder/service/impl/OrderServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-others/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-others/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-others/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-others/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-others/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-others/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-payment/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-payment/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-redis/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-redis/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-redis/src/test/java/com/lattice/latticeredis/LatticeRedisApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-redis/src/test/java/com/lattice/latticeredis/LatticeRedisApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-redis/target/classes/com/lattice/latticeredis/config/RedisConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-redis/target/classes/com/lattice/latticeredis/config/RedisConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-redis/target/test-classes/com/lattice/latticeredis/LatticeRedisApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-redis/target/test-classes/com/lattice/latticeredis/LatticeRedisApplicationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-search/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-search/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-user/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-user/src/main/java/com/lattice/latticeuser/dto/RoleDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-user/src/main/java/com/lattice/latticeuser/dto/RoleDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-user/src/main/java/com/lattice/latticeuser/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-user/src/main/java/com/lattice/latticeuser/dto/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-user/src/main/java/com/lattice/latticeuser/entity/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-user/src/main/java/com/lattice/latticeuser/entity/Log.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-user/src/main/java/com/lattice/latticeuser/entity/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-user/src/main/java/com/lattice/latticeuser/entity/Permission.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-user/src/main/java/com/lattice/latticeuser/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-user/src/main/java/com/lattice/latticeuser/entity/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-user/src/main/java/com/lattice/latticeuser/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-user/src/main/java/com/lattice/latticeuser/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-user/src/main/java/com/lattice/latticeuser/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-user/src/main/java/com/lattice/latticeuser/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-user/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-user/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-user/src/test/java/com/lattice/latticeuser/LatticeUserApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-user/src/test/java/com/lattice/latticeuser/LatticeUserApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-user/src/test/java/com/lattice/latticeuser/UserTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-user/src/test/java/com/lattice/latticeuser/UserTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-user/target/classes/com/lattice/latticeuser/dto/RoleDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-user/target/classes/com/lattice/latticeuser/dto/RoleDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-user/target/classes/com/lattice/latticeuser/dto/UserDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-user/target/classes/com/lattice/latticeuser/dto/UserDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-user/target/classes/com/lattice/latticeuser/entity/Log.class" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-user/target/classes/com/lattice/latticeuser/entity/Log.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-user/target/classes/com/lattice/latticeuser/entity/Permission.class" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-user/target/classes/com/lattice/latticeuser/entity/Permission.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-user/target/classes/com/lattice/latticeuser/entity/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-user/target/classes/com/lattice/latticeuser/entity/Role.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-user/target/classes/com/lattice/latticeuser/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-user/target/classes/com/lattice/latticeuser/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-user/target/classes/com/lattice/latticeuser/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-user/target/classes/com/lattice/latticeuser/service/impl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-user/target/classes/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-user/target/classes/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-user/target/test-classes/com/lattice/latticeuser/LatticeUserApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-user/target/test-classes/com/lattice/latticeuser/LatticeUserApplicationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-user/target/test-classes/com/lattice/latticeuser/UserTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-user/target/test-classes/com/lattice/latticeuser/UserTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-zuul/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-zuul/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-zuul/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-zuul/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-zuul/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-zuul/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-zuul/target/lattice-zuul-1.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-zuul/target/lattice-zuul-1.0.0.jar.original" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-zuul/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-zuul/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-zuul/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-zuul/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-zuul/target/surefire-reports/TEST-com.lattice.latticezuul.LatticeZuulApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-zuul/target/surefire-reports/TEST-com.lattice.latticezuul.LatticeZuulApplicationTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lattice-zuul/target/surefire-reports/com.lattice.latticezuul.LatticeZuulApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../lattice-zuul/target/surefire-reports/com.lattice.latticezuul.LatticeZuulApplicationTests.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/goods/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/goods/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/goods/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/goods/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/goods/sku_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/goods/sku_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/goods/sku_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/goods/sku_list.html" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pages/goods/sku_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="232" column="40" selection-start-line="232" selection-start-column="40" selection-end-line="232" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>订单</find>
+      <find>member</find>
+      <find>updateStatus</find>
+      <find>http://localhost:8110/v1/item/</find>
+      <find>add</find>
+      <find>goodsID</find>
+      <find>Url</find>
+      <find>action</find>
+      <find>goodsid</find>
+      <find>image</find>
+      <find>file</find>
+      <find>edit</find>
+      <find>cate</find>
+      <find>localhost:8111</find>
+      <find>childList</find>
+      <find>8444</find>
+      <find>chi</find>
+      <find>local</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>goods</replace>
+      <replace>192.168.77.100:8444/goods</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/pages/member/add.html" />
+        <option value="$PROJECT_DIR$/pages/goods/cate_list.html" />
+        <option value="$PROJECT_DIR$/pages/goods/cate_add.html" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/pages/admin/list.html" />
+        <option value="$PROJECT_DIR$/pages/goods/add.html" />
+        <option value="$PROJECT_DIR$/pages/goods/list.html" />
+        <option value="$PROJECT_DIR$/pages/goods/sku_list.html" />
+        <option value="$PROJECT_DIR$/pages/goods/sku_add.html" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="10" />
+    <option name="y" value="20" />
+    <option name="width" value="1346" />
+    <option name="height" value="728" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="manager" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="manager" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="manager" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="goods" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="full.screen.before.presentation.mode" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\lattice\manager\pages\user" />
+      <recent name="E:\lattice\manager\pages\goods" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.index.html (1)">
+    <configuration name="add.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/manager/pages/goods/add.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.html (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/manager/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/WeAdmin/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="sku_add.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/manager/pages/goods/sku_add.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.index.html (1)" />
+        <item itemvalue="JavaScript Debug.sku_add.html" />
+        <item itemvalue="JavaScript Debug.add.html" />
+        <item itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="43d85ad3-81d7-4994-b121-0fe186407a76" name="Default Changelist" comment="" />
+      <created>1544240481552</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1544240481552</updated>
+      <workItem from="1544240485543" duration="47000" />
+      <workItem from="1544240564182" duration="788000" />
+      <workItem from="1544241586207" duration="133000" />
+      <workItem from="1544242034985" duration="8000" />
+      <workItem from="1544271741223" duration="28000" />
+      <workItem from="1544319550499" duration="1935000" />
+      <workItem from="1544334188951" duration="98000" />
+      <workItem from="1544454779709" duration="2391000" />
+      <workItem from="1544526615376" duration="592000" />
+      <workItem from="1544882156708" duration="50000" />
+      <workItem from="1545439294007" duration="13691000" />
+      <workItem from="1545541308781" duration="595000" />
+      <workItem from="1545557002837" duration="7265000" />
+      <workItem from="1545609598456" duration="4569000" />
+      <workItem from="1545634216555" duration="5871000" />
+      <workItem from="1545696152655" duration="873000" />
+      <workItem from="1546308374056" duration="1344000" />
+      <workItem from="1546338334827" duration="5144000" />
+      <workItem from="1546421600416" duration="580000" />
+      <workItem from="1546422333750" duration="7953000" />
+      <workItem from="1546478278114" duration="363000" />
+      <workItem from="1546481295838" duration="344000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="54662000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17401046" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3293919" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Statistic" order="11" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12546676" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/pages/order/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3900">
+          <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/user/add.html" />
+    <entry file="file://$PROJECT_DIR$/pages/admin/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1075">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/order/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/goods/cate_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5025">
+          <caret line="201" column="41" selection-start-line="201" selection-start-column="37" selection-end-line="201" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/admin/add.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2075">
+          <caret line="83" column="36" selection-start-line="83" selection-start-column="36" selection-end-line="83" selection-end-column="36" />
+          <folding>
+            <element signature="n#li#1;n#ul#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#2;n#ul#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/goods/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6100">
+          <caret line="244" column="57" selection-start-line="244" selection-start-column="57" selection-end-line="244" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/goods/sku_add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4550">
+          <caret line="182" column="14" selection-start-line="182" selection-start-column="14" selection-end-line="182" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/goods/cate_add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2575">
+          <caret line="103" column="37" selection-start-line="103" selection-start-column="36" selection-end-line="103" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/goods/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3599">
+          <caret line="156" column="9" selection-start-line="156" selection-start-column="9" selection-end-line="156" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/goods/sku_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="232" column="40" selection-start-line="232" selection-start-column="40" selection-end-line="232" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

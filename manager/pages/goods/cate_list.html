@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>会员列表-WeAdmin Frame型后台管理系统-WeAdmin 1.0</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="../../layui/css/layui.css" />
+
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script>
+        function update(data) {
+
+            $.ajax({
+                type: "put",
+                url: "http://localhost:8111/goodscate/" ,
+                async: true,
+                data: JSON.stringify(data),
+                contentType: "application/json",
+                method:"put",
+                success: function(res) {
+                    return res;
+
+                }
+
+            });
+        }
+    </script>
+
+</head>
+
+<body>
+
+<div class="weadmin-body">
+
+
+    <table class="layui-hide" id="test" lay-filter="test"></table>
+
+    <script type="text/html" id="toolbarDemo">
+        <div class="layui-btn-container" style="display: flex;flex-wrap: nowrap;">
+            <button class="layui-btn layui-btn-sm" lay-event="delete">批量删除</button>
+            <button class="layui-btn layui-btn-sm" lay-event="instock">批量下架</button>
+            <button class="layui-btn layui-btn-sm" lay-event="reshelf">批量上架</button>
+
+        </div>
+    </script>
+    <script type="text/html" id="change">
+        {{# if(d.status == '1'){ }}
+        <div class="layui-bg-green">已上架</div>
+        {{# } else if(d.status == '2'){ }}
+        <div class="layui-bg-orange">已下架</div>
+        {{# } else if(d.status == '3'){ }}
+        <div class="layui-bg-red">已删除</div>
+        {{# } else{ }}
+        <a class="layui-btn layui-btn-xs">异常</a>
+        {{# } }}
+    </script>
+
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        {{# if(d.status == '1'){ }}
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="instock">下架</a>
+        {{# } else{ }}
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="reshelf">上架</a>
+        {{# } }}
+
+    </script>
+
+</div>
+<!--<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>-->
+<script src="../../layui/layui.js" charset="utf-8"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+    function getIds(data) {
+        var ids = [];
+        for(var i = 0; i < data.length; i++) {
+            ids.push(data[i].cateid)
+        }
+        return ids;
+    }
+
+    layui.use('table', function() {
+        var table = layui.table;
+        function updateStatus(ids,url) {
+            console.log(ids,status)
+            $.ajax({
+                type: "put",
+                url: "http://localhost:8111/goodscate/updateStatus/"+url +"?ids="+ids,
+                async: true,
+
+                contentType: "application/json",
+                method:"put",
+                success: function(res) {
+                    var code = res.code
+                    console.log(code)
+                    if(code == "200") {
+                        layer.msg("修改成功")
+                        setTimeout(function() {
+                            location.reload();
+
+                        }, 500)
+                    }
+                }
+
+            });
+        }
+        table.render({
+            elem: '#test',
+            url: 'http://localhost:8111/goodscate/list',
+            toolbar: '#toolbarDemo',
+            methpd:"get",
+            title: '商品分类列表',
+            cols: [
+                [{
+                    type: 'checkbox',
+                    fixed: 'left'
+                }, {
+                    field: 'cateid',
+                    title: 'ID',
+                    fixed: 'left',
+                    align: 'center',
+                    sort: true
+                },{
+                    field: 'title',
+                    title: '商品名称',
+                    align: 'center',
+                    fixed: 'left',
+                    sort: true
+                },{
+                    field: 'ord',
+                    title: '排序',
+                    align: 'center',
+                    fixed: 'left',
+                    sort: true
+                },{
+                    field: 'father',
+                    title: '父节点',
+                    align: 'center',
+                    fixed: 'left',
+                    sort: true
+                },{
+                    field: 'created',
+                    title: '创建时间',
+                    align: 'center',
+                    fixed: 'left',
+                    sort: true
+                },{
+                    field: 'updated',
+                    title: '修改时间',
+                    align: 'center',
+                    fixed: 'left',
+                    sort: true
+                },{
+                    fixed: 'right',
+                    title: '操作',
+                    toolbar: '#barDemo'
+
+                }]
+            ],
+            page: true,
+            response: {
+                statusName: 'code' //数据状态的字段名称，默认：code
+                ,statusCode: 200 //成功的状态码，默认：0
+                ,msgName: 'msg' //状态信息的字段名称，默认：msg
+                ,countName: 'count' //数据总数的字段名称，默认：count
+                ,dataName: 'data' //数据列表的字段名称，默认：data
+            }
+
+        });
+
+        //头工具栏事件
+        table.on('toolbar(test)', function(obj) {
+            var checkStatus = table.checkStatus(obj.config.id);
+            var data = checkStatus.data;
+            var ids = getIds(data)
+            switch(obj.event) {
+                case 'instock':
+                {
+                    updateStatus(ids,'instock');
+                    break
+                }
+                case 'reshelf':{
+                    updateStatus(ids,'reshelf');
+                    break
+                }
+
+            };
+        });
+
+        //监听行工具事件
+        table.on('tool(test)', function(obj) {
+            var data = obj.data;
+            if(obj.event === 'instock') {
+                console.log(data.cateid)
+                updateStatus(data.cateid,'instock')
+            } else if(obj.event === 'edit') {
+                layer.open({
+                    type: 2,
+                    area: ['700px', '400px'],
+                    content: 'cate_add.html?id='+data.cateid //这里content是一个普通的String
+                });
+            } else if(obj.event == 'reshelf') {
+                console.log(data.cateid)
+                updateStatus(data.cateid,'reshelf')
+            }
+        });
+    });
+</script>
+
+</body>
+
+</html>

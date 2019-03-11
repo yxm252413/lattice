@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.lattice.latticepayment.LatticePaymentApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.113 s - in com.lattice.latticepayment.LatticePaymentApplicationTests
